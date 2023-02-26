@@ -40,8 +40,8 @@ app.put('/rank', (req, res) => {rank.handleRank(req, res, db)})
 app.post('/rankurl', (req, res) => {rank.handleApiCall(req, res)})
 
 
-app.listen(3008, () => {
-    console.log('app is running fine on port 3008')
+app.listen(process.env.PORT || 3008, () => {
+    console.log(`app is running fine on port ${process.env.PORT}`)
 })
 
 
