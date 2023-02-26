@@ -6,7 +6,7 @@ const register  = require('./controllers/register');
 const signin  = require('./controllers/signin');
 const profile  = require('./controllers/profile');
 const rank = require('./controllers/rank');
-
+const PORT = process.env.PORT || 3008;
 
 const db = knex ({
     client: 'pg',
@@ -40,8 +40,8 @@ app.put('/rank', (req, res) => {rank.handleRank(req, res, db)})
 app.post('/rankurl', (req, res) => {rank.handleApiCall(req, res)})
 
 
-app.listen(process.env.PORT || 3008, () => {
-    console.log(`app is running fine on port ${process.env.PORT}`)
+app.listen(PORT || 3008, () => {
+    console.log(`app is running fine on port ${PORT}`)
 })
 
 
