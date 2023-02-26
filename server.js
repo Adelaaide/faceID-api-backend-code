@@ -25,9 +25,20 @@ const db = knex ({
   
 
 const app = express();
+const whitelist = ["http://localhost:3000"]
+const corsOptions = {
+    origin: function(origin, callback) {
+        if(!origin || whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error("Not Allowed by CORS"))
+        }
+    },
+    credentials: true,
+}
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) => { res.send('it is working') })
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
