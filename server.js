@@ -11,7 +11,7 @@ const { Client } = require('pg');
 
 
 const db = new Client ({
-      connectionString: process.env.RAILWAY_DATABASE_URL,
+      connectionString: "postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
       ssl: true 
   });
 
