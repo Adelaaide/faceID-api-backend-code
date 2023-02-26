@@ -29,7 +29,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => { res.send(database.users) })
+app.get('/', (req, res) => { res.send('it is working') })
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
     //2nd thing: Register new users by adding their details to our database.
 app.post('/register', (req, res) => {register.handleRegister(req, res, db, bcrypt)})
