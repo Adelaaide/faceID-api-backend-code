@@ -12,9 +12,7 @@ const { Client } = require('pg');
 
 const db = new Client ({
       connectionString: process.env.RAILWAY_DATABASE_URL,
-      ssl: {
-        rejectUnauthorised: false
-      }
+      ssl: true 
   });
 
   db.connect();
