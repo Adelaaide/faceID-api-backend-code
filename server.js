@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3008;
 const { Client } = require('pg');
 
 const db = new Client ({
-      connectionString: "postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
+      connectionString: "postgresql://postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
       ssl: true 
 });
 
