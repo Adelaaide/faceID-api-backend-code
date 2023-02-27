@@ -1,33 +1,33 @@
 const express = require('express');
 const cors = require('cors');
-// const knex = require('knex');
+const knex = require('knex');
 const bcrypt = require('bcrypt-nodejs');
 const register  = require('./controllers/register');
 const signin  = require('./controllers/signin');
 const profile  = require('./controllers/profile');
 const rank = require('./controllers/rank');
 const PORT = process.env.PORT || 3008;
-const { Client } = require('pg');
+// const { Client } = require('pg');
 
-const db = new Client ({
+const db = knex ({
       connectionString: "postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
       ssl: true 
 });
 
-db.connect((err) => {
-    if (err) {
-        console.error('Failed to connect to database', err);
-    } else {
-        console.log('Connected to database');
-        db.query('SELECT * FROM users', (err, res) => {
-            if (err) {
-                console.error('Failed to execute query', err);
-            } else {
-                console.log(res.rows);
-            }
-        });
-    }
-});
+//db.connect((err) => {
+  //  if (err) {
+    //    console.error('Failed to connect to database', err);
+    //} else {
+      //  console.log('Connected to database');
+        //db.query('SELECT * FROM users', (err, res) => {
+          //  if (err) {
+            //    console.error('Failed to execute query', err);
+            //} else {
+              //  console.log(res.rows);
+            //}
+        //});
+    //}
+//});
   
 
   const app = express();
