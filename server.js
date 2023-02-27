@@ -1,15 +1,15 @@
 const express = require('express');
 const cors = require('cors');
-const knex = require('knex');
+//const knex = require('knex');
 const bcrypt = require('bcrypt-nodejs');
 const register  = require('./controllers/register');
 const signin  = require('./controllers/signin');
 const profile  = require('./controllers/profile');
 const rank = require('./controllers/rank');
 const PORT = process.env.PORT || 3008;
-// const { Client } = require('pg');
+const { Client } = require('pg');
 
-const db = knex ({
+const db = new Client ({
       connectionString: "postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
       ssl: true 
 });
