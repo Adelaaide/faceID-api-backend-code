@@ -9,19 +9,25 @@ const rank = require('./controllers/rank');
 const PORT = process.env.PORT || 3008;
 const { Client } = require('pg');
 
-
 const db = new Client ({
       connectionString: "postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
       ssl: true 
-  });
+});
 
-  db.connect();
-
-  db.query('SELECT * FROM users', (err, res) => {
-    if (err) throw err;
-    console.log(res.rows);
-    db.end();
-  })
+db.connect((err) => {
+    if (err) {
+        console.error('Failed to connect to database', err);
+    } else {
+        console.log('Connected to database');
+        db.query('SELECT * FROM users', (err, res) => {
+            if (err) {
+                console.error('Failed to execute query', err);
+            } else {
+                console.log(res.rows);
+            }
+        });
+    }
+});
   
 
   const app = express();
