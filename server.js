@@ -21,7 +21,7 @@ db.connect((err) => {
        console.error('Failed to connect to database', err);
     } else {
         console.log('Connected to database');
-        db.query('SELECT * FROM users', (err, res) => {
+        db.query('SELECT * FROM users JOIN login ON users.id = login.user_id', (err, res) => {
             if (err) {
                console.error('Failed to execute query', err);
             } else {
