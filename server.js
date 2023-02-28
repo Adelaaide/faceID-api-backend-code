@@ -10,13 +10,10 @@ const PORT = process.env.PORT || 3008;
 const { Client } = require('pg');
 
 const db = new Client ({
- //   client: 'pg',
-    connection: {
       connectionString: "postgres://faceidsql_user:xKiMPFXkTqhCOFVO0TZcemv3cNiqaCLd@dpg-cfuqrt5a499aogr0m4b0-a/faceidsql",
       ssl: {
           rejectUnauthorized: false
         }
-    }
    });
 
 db.connect((err) => {
