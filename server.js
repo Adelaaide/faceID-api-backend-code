@@ -11,26 +11,28 @@ const PORT = process.env.PORT || 3008;
 
 const db = knex ({
     client: 'pg',
+    connection: {
       connectionString: "postgres://faceidsql_user:xKiMPFXkTqhCOFVO0TZcemv3cNiqaCLd@dpg-cfuqrt5a499aogr0m4b0-a/faceidsql",
       ssl: {
           rejectUnauthorized: false
         }
+    }
    });
 
-db.connect((err) => {
-    if (err) {
-       console.error('Failed to connect to database', err);
-    } else {
-        console.log('Connected to database');
-        db.select('SELECT * FROM users', (err, res) => {
-            if (err) {
-                console.error('Failed to execute query', err);
-            } else {
-                console.log(res.rows);
-            }
-        });
-    }
-});
+//db.connect((err) => {
+    //if (err) {
+      // console.error('Failed to connect to database', err);
+    //} else {
+        //console.log('Connected to database');
+        //db.select('SELECT * FROM users', (err, res) => {
+            //if (err) {
+            //    console.error('Failed to execute query', err);
+          //  } else {
+        //        console.log(res.rows);
+      //      }
+    //    });
+  //  }
+//});
   
 
   const app = express();
