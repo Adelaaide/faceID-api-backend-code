@@ -33,9 +33,6 @@ db.connect((err) => {
   
 
   const app = express();
-  const server = http.createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://faceid.onrender.com');
-});
   const whitelist = ["http://localhost:3000", 'https://faceid.onrender.com' ]
   const corsOptions = {
       origin: function(origin, callback) {
