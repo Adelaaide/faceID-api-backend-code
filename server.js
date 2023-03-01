@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3008;
 const { Client } = require('pg');
 
 const db = new Client ({
-      connectionString: "postgres://faceidsql_user:xKiMPFXkTqhCOFVO0TZcemv3cNiqaCLd@dpg-cfuqrt5a499aogr0m4b0-a/faceidsql",
+      connectionString: "postgresql://postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
       ssl: {
           rejectUnauthorized: false
         }
@@ -64,17 +64,3 @@ app.post('/rankurl', (req, res) => {rank.handleApiCall(req, res)})
 app.listen(PORT || 3008, () => {
   console.log(`server started on port ${PORT}`);
 });
-
-
-/**
- *  --> res = this is working 
- this is the root route that responds with this is working 
- * signin --> POST = success/fail
- this is sign in which will be post request of user information, responding with either success/fail
- * register --> POST = user
-we have a resgister which will add the new user information to our database, this will return the new created user object.
- * profile/:userID --> GET = user
-this a user detail that is specific to each user.
- * ranks/image point --> PUT --> user 
-this keeps a record of each user number
- */
