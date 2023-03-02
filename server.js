@@ -13,8 +13,10 @@ require('dotenv').config();
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: "postgresql://postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
-        ssl: true
+        host:process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password:process.env.DB_PASSWORD,
+        database:process.env.DB_NAME,
     }
 });
 
