@@ -18,7 +18,7 @@ require('dotenv').config();
 const { Client } = require('pg');
 
 const db = new Client ({
-      connectionString: "postgresql://postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
+      connectionString: "postgres://faceidsql_user:xKiMPFXkTqhCOFVO0TZcemv3cNiqaCLd@dpg-cfuqrt5a499aogr0m4b0-a/faceidsql",
       ssl: true
    });
 
