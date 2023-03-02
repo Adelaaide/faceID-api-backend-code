@@ -10,21 +10,10 @@ const {handleImage, handleApiCall} = require('./controllers/image.controller');
 require('dotenv').config();
 //const db = require('./config/config');
 
-
-
-
-const db = knex({
-    client: 'pg',
-    connection: {
-        host: 'containers-us-west-171.railway.app',
-        user: 'postgres',
-        password: 'NOh9eSQ8FblV5aEvt8Wo',
-        database: 'railway'
-    
-        
-        
-    }
-});
+const db = knex ({
+      connectionString: "postgresql://postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
+      ssl: true
+   });
 
 
 const port = process.env.PORT || 4000;
