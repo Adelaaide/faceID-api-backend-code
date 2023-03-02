@@ -13,12 +13,12 @@ require('dotenv').config();
 const db = knex({
     client: 'pg',
     connection: {
-        connectionString: "postgres://zfupniia:U1xMSJ0AOp0KWjmYBbpiZibcSNarCvU-@trumpet.db.elephantsql.com/zfupniia",
-        ssl: true
-//         host:process.env.DB_HOST,
-//         user: process.env.DB_USER,
-//         password:process.env.DB_PASSWORD,
-//         database:process.env.DB_NAME,
+//         connectionString: "postgres://zfupniia:U1xMSJ0AOp0KWjmYBbpiZibcSNarCvU-@trumpet.db.elephantsql.com/zfupniia",
+//         ssl: true
+        host:process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password:process.env.DB_PASSWORD,
+        database:process.env.DB_NAME
     }
 });
 
