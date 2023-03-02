@@ -21,7 +21,7 @@ const handleApiCall = (req, res) => {
  
 
 const handleRank = (req, res, db) => {
-    const { id } = req.body
+    const { id } = req.body;
     db('users').where('id', '=', id)
         .increment('entries', 1)
         .returning('entries')
