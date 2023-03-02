@@ -10,33 +10,13 @@ const {handleImage, handleApiCall} = require('./controllers/image.controller');
 require('dotenv').config();
 //const db = require('./config/config');
 
-// const db = knex ({
-//       connectionString: "postgresql://postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
-//       ssl: true
-//    });
-
-const { Client } = require('pg');
-
-const db = new Client ({
-      connectionString: "postgres://faceidsql_user:xKiMPFXkTqhCOFVO0TZcemv3cNiqaCLd@dpg-cfuqrt5a499aogr0m4b0-a/faceidsql",
-      ssl: true
-   });
-
-db.connect((err) => {
-    if (err) {
-       console.error('Failed to connect to database', err);
-    } else {
-        console.log('Connected to database');
-        db.query('SELECT * FROM users JOIN login ON users.id = login.user_id', (err, res) => {
-            if (err) {
-               console.error('Failed to execute query', err);
-            } else {
-                console.log(res.rows);
-            }
-        });
+const db = knex({
+    client: 'pg',
+    connection: {
+        connectionString: "postgresql://postgres:NOh9eSQ8FblV5aEvt8Wo@containers-us-west-171.railway.app:5662/railway",
+        ssl: true
     }
 });
-
 
 const port = process.env.PORT || 4000;
 const app = express();
