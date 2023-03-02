@@ -13,7 +13,6 @@ const handleSignin = (req, res, db, bcrypt)  => {
           return db.select('*').from('users')
             .where('email', '=', email)
             .then(user => {
-                console.log(user);
               res.json(user[0])
             })
             .catch(err => res.status(400).json('unable to get user'))
