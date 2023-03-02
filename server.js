@@ -16,10 +16,10 @@ require('dotenv').config();
 const db = knex({
     client: 'pg',
     connection: {
-        host:process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password:process.env.DB_PASSWORD,
-        database:process.env.DB_NAME,
+        host: 'containers-us-west-171.railway.app',
+        user: 'postgres',
+        password: 'NOh9eSQ8FblV5aEvt8Wo',
+        database: 'railway'
     
         
         
