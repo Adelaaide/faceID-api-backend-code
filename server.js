@@ -25,7 +25,7 @@ const db = knex({
 const port = process.env.PORT || 4000;
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({origin:"https://faceid-app.onrender.com}));
 
 
 app.get('/',(req,res) => {
